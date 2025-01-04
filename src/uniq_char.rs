@@ -1,4 +1,4 @@
-use std::collections::HashSet;
+use std::{collections::HashSet, ops::Not};
 
 #[cfg(test)]
 mod unit_tests;
@@ -10,9 +10,9 @@ where
     let s = s.as_ref();
 
     s.chars()
-        .filter(char::is_ascii)
-        .try_fold(HashSet::new(), |mut res, ch| match res.insert(ch) {
-            true => Some(res),
+        .filter(|c| c.is_ascii() && c.is_ascii_whitespace().not())
+        .try_fold(HashSet::new(), |mut seen, ch| match seen.insert(ch) {
+            true => Some(seen),
             false => None,
         })
         .is_some()

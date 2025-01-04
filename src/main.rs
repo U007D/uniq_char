@@ -17,7 +17,7 @@ fn main() -> Result<()> {
         true => "only unique characters",
         false => "duplicate characters",
     };
-    println!("The string {arg} contains {clause}.");
+    println!("The argument {arg} contains {clause}.");
 
     Ok(())
 }

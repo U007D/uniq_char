@@ -15,9 +15,8 @@ name = "lib"
 path = "src/lib.rs"
 
 [dependencies]
-bool_ext = "*"
-termination = "*"
-thiserror = "*"
+termination = "0.1.2"
+derive_more = { version = "1.0.0", features = ["display", "error"] }
 
 [dev-dependencies]
 assert2 = "*"
